@@ -1,6 +1,8 @@
 
 
 This Document describes how to configure tower for ldap authentication 
+-----------------------------------------------------------------------
+
 
 The First thing we need is a user in the ldap which has access to read the whole ldap structure.
 We can test if we can make successful queries to the ldap server via the below command. 
@@ -17,12 +19,14 @@ Here “cn=benz,cn=users,dc=benno,dc=com” is the Distinguished Name of the con
 This can be added to the Parameter “AUTH_LDAP_BIND_DN =“ to specify the user that tower will use to connect (Bind) to the ldap server.
 
 The next parameter would be:
+
 -------------------------------
 
 AUTH_LDAP_BIND_PASSWORD = 'Ben4Cloud'
 Which specifies the password to use for the Binding user.
 
 The next section specifies where to search for users while authenticating.
+
 ------------------------------------------------------------------------
 
 ```
@@ -43,6 +47,7 @@ The Second line specifies the scope where the users should be searched
 		BASE This value is used to indicate searching only the entry at the base DN, resulting in only that entry being returned 
 		ONELEVEL This value is used to indicate searching all entries one level under the base DN - but not including the base DN and not including any entries under that one level under the base DN. 
 		SUBTREE This value is used to indicate searching of all entries at all levels under and including the specified base DN.  
+
 ```
 
 The Third line specifies the key name where the username is stored. for example if we query the AD ldap using for ldapsearch with filter for user as below 
@@ -75,6 +80,7 @@ similarly for openldap the key is ‘uid’ hence the line becomes
 
 
 The next directives specifies the user attributes.
+
 --------------------------------------------------
 
 ```
@@ -90,6 +96,7 @@ AUTH_LDAP_USER_ATTR_MAP = {
 The above example says that the users last name can be got from the key ‘sn’ in the ldapsearch. we can use the same ldap query for the user to figure out under what keys they are stored.
 
 The Next directive specifies the where the groups should shoudl be searched and how to search them.
+
 ---------------------------------------
 
 ```
@@ -121,6 +128,7 @@ distinguishedName: CN=admin,OU=grp,DC=benno,DC=com
 ```
 
 Group Type
+
 --------------
 
 The next directive specifies the type of group.
@@ -135,6 +143,7 @@ Miscelleneous
 ------------------------
 
 LDAPS:
+
 -------
 
 To enable secure ldap communication with the ldap server change the ldap url to ldaps in directive “AUTH_LDAP_SERVER_URI “
@@ -151,6 +160,7 @@ ldap.OPT_X_TLS_REQUIRE_CERT: False,
 ```
 
 Debugging:
+
 ----------
 
 Debugging ldap connections can be enabled by adding the below lines in the ldap.py file.
@@ -172,6 +182,7 @@ LOGGING['loggers']['django_auth_ldap']['level'] = 'DEBUG'
 ```
 
 Referrals:
+
 -------------
 
 Active directory uses ‘referrals’ in case the queried object is not available in it’s database, we have seen that this doesnt wok properly with the django ldap client and most of the times it helps to disable referrals. we can disable ldap referrals by adding the below lines in ldap.py
