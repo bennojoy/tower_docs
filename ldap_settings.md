@@ -22,7 +22,7 @@ The next parameter would be:
 
 -------------------------------
 
-AUTH_LDAP_BIND_PASSWORD = 'Ben4Cloud'
+AUTH_LDAP_BIND_PASSWORD = 'passme'
 Which specifies the password to use for the Binding user.
 
 The next section specifies where to search for users while authenticating.
