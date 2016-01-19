@@ -44,9 +44,11 @@ The First line specifies where to search for users in the ldap Tree. so in the a
 The Second line specifies the scope where the users should be searched 
 
 ```
-		BASE This value is used to indicate searching only the entry at the base DN, resulting in only that entry being returned 
-		ONELEVEL This value is used to indicate searching all entries one level under the base DN - but not including the base DN and not including any entries under that one level under the base DN. 
-		SUBTREE This value is used to indicate searching of all entries at all levels under and including the specified base DN.  
+		BASE:  This value is used to indicate searching only the entry at the base DN, resulting in only that entry being returned 
+		
+		ONELEVEL:  This value is used to indicate searching all entries one level under the base DN - but not including the base DN and not including any entries under that one level under the base DN. 
+		
+		SUBTREE: This value is used to indicate searching of all entries at all levels under and including the specified base DN.
 
 ```
 
