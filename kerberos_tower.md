@@ -112,5 +112,10 @@ kinit benz@BENNO.COM -k -t benz.keytab
 ```
 
 
+Notes:
+
+Make sure time is in sync between AD and tower and the clients.
+Client hostnames can looked up via dns both normal and reverse
+
 
 
