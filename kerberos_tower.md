@@ -90,9 +90,11 @@ After this if we run the playbook it should run fine, Do try running the playboo
 
 Once this works integration with Tower is easy. Generate the kerberos ticket as user 'awx' and tower should automatically pickup the 
 generated ticket for authentication.
+
 Note: Make sure the python package 'kerberos' is installed. Ansible checks if kerberos package is installed, if so it uses kerberos authentication.
 
 The problem now would be generate the ticket every 24 hours as the default life time of a ticket is 24 hours (can be changed in /etc/krb.conf file)
+
 One solution would be to cron the kinit process every 24 hours. for this to be automated we need to generate a keytab file which stores the
 user password and kinit wont prompt for user password, the below steps oultine how to generate this keytab file and then get the kerberos ticket.
 
@@ -114,8 +116,11 @@ kinit benz@BENNO.COM -k -t benz.keytab
 
 Notes:
 
+-------------
+
 Make sure time is in sync between AD and tower and the clients.
-Client hostnames can looked up via dns both normal and reverse
+
+Client hostnames can looked up via dns both normal and reverse.
 
 
 
